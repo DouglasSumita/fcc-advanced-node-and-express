@@ -1,6 +1,7 @@
 // Do not change this file
 require('dotenv').config();
 const { MongoClient } = require('mongodb');
+const { IO_SEEK_CUR } = require('mongodb/lib/gridfs/grid_store');
 
 async function main(callback) {
     const URI = process.env.MONGO_URI; // Declare MONGO_URI in your .env file
@@ -12,7 +13,7 @@ async function main(callback) {
 
         // Make the appropriate DB calls
         await callback(client);
-
+        
     } catch (e) {
         // Catch any errors
         console.error(e);
